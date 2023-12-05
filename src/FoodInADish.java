@@ -1,6 +1,11 @@
+import javax.swing.*;
+
 public abstract class FoodInADish<T> extends DrawableObj implements Comparable<FoodInADish<T>>{
     T food;
     String dishColor;
+    FoodInADish<> (){
+
+    }
     @Override
     public int compareTo(FoodInADish o)
     {
@@ -9,11 +14,11 @@ public abstract class FoodInADish<T> extends DrawableObj implements Comparable<F
         else if (((int)(((Food)food).getKg())-(int)(((Food)o.getFood()).getKg()))!=0){return ((int)(((Food)food).getKg())-(int)(((Food)o.getFood()).getKg()));}
         else if(food instanceof Fruit )
         {
-            if(((Fruit)food).isReadyToEat==true && ((Fruit)o.getFood()).isReadyToEat == false)
+            if(((Fruit)food).getIsReadyToEat() ==true && ((Fruit)o.getFood()).getIsReadyToEat() == false)
             {
                 return 1;
             }
-            if(((Fruit)food).isReadyToEat==false && ((Fruit)o.getFood()).isReadyToEat == true)
+            if(((Fruit)food).getIsReadyToEat()==false && ((Fruit)o.getFood()).getIsReadyToEat() == true)
             {
                 return -1;
             }
@@ -23,11 +28,11 @@ public abstract class FoodInADish<T> extends DrawableObj implements Comparable<F
         }
         else
         {
-            if(((Vegetable)food).isFresh==true && ((Vegetable)o.getFood()).isFresh == false)
+            if(((Vegetable)food).getIsFresh()==true && ((Vegetable)o.getFood()).getIsFresh() == false)
             {
                 return 1;
             }
-            if(((Vegetable)food).isFresh==false && ((Vegetable)o.getFood()).isFresh == true)
+            if(((Vegetable)food).getIsFresh()==false && ((Vegetable)o.getFood()).getIsFresh() == true)
             {
                 return -1;
             }
@@ -52,5 +57,15 @@ public abstract class FoodInADish<T> extends DrawableObj implements Comparable<F
 
     public void setDishColor(String dishColor) {
         this.dishColor = dishColor;
+    }
+
+    public JPanel draw(){
+        ImageIcon foodIcon= new ImageIcon("/resources"+((Food)food).getName()+".png");
+        ImageIcon dishIcon = new ImageIcon("/resources"+dishColor+".png");
+        JPanel p = new JPanel();
+        JLabel fl = new JLabel(foodIcon);
+
+        p.add(fl);
+        return p;
     }
 }

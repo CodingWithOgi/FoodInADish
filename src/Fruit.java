@@ -1,7 +1,7 @@
 public class Fruit extends Food{
-    boolean isReadyToEat = true;
-
-    public boolean isReadyToEat() {
+    private boolean isReadyToEat = true;
+    Fruit(){}
+    public boolean getIsReadyToEat() {
         return isReadyToEat;
     }
 

@@ -1,7 +1,11 @@
 public class Food {
-    String name;
-    double kg;
-    @Override
+    private String name;
+    private double kg;
+    Food(){}
+    Food (String name, double kg) {
+        this.name=name;
+        this.kg=kg;
+    }
     public String toString(){
         return name;
     }

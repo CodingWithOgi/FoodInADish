@@ -1,7 +1,7 @@
 public class Vegetable {
-    boolean isFresh;
-
-    public boolean isFresh() {
+    private boolean isFresh;
+    Vegetable(){}
+    public boolean getIsFresh() {
         return isFresh;
     }
 
